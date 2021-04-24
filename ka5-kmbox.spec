@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kmbox
 Summary:	Kmbox
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	ef5c7e21e0c14d1184c64438e6e9cb2f
+# Source0-md5:	e78b6e731947ec4c931261f2183ddebb
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel
@@ -63,8 +63,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %ghost %{_libdir}/libKF5Mbox.so.5
-%attr(755,root,root) %{_libdir}/libKF5Mbox.so.5.*.*
+%ghost %{_libdir}/libKF5Mbox.so.5
+%attr(755,root,root) %{_libdir}/libKF5Mbox.so.*.*.*
 %{_datadir}/qlogging-categories5/kmbox.categories
 %{_datadir}/qlogging-categories5/kmbox.renamecategories
 
@@ -73,5 +73,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/KMbox
 %{_includedir}/KF5/kmbox_version.h
 %{_libdir}/cmake/KF5Mbox
-%attr(755,root,root) %{_libdir}/libKF5Mbox.so
+%{_libdir}/libKF5Mbox.so
 %{_libdir}/qt5/mkspecs/modules/qt_KMbox.pri
