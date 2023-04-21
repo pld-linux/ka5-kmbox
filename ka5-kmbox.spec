@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.12.3
+%define		kdeappsver	23.04.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kmbox
 Summary:	Kmbox
 Name:		ka5-%{kaname}
-Version:	22.12.3
-Release:	2
+Version:	23.04.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	079eb9f26ddd859bdaa40e9e6e6de7e3
+# Source0-md5:	bb956974bd67f3712d18b6433d9a58dd
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel
@@ -75,14 +75,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%ghost %{_libdir}/libKF5Mbox.so.5
-%attr(755,root,root) %{_libdir}/libKF5Mbox.so.*.*.*
 %{_datadir}/qlogging-categories5/kmbox.categories
 %{_datadir}/qlogging-categories5/kmbox.renamecategories
+%ghost %{_libdir}/libKPim5Mbox.so.5
+%attr(755,root,root) %{_libdir}/libKPim5Mbox.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF5/KMbox
-%{_libdir}/cmake/KF5Mbox
-%{_libdir}/libKF5Mbox.so
 %{_libdir}/qt5/mkspecs/modules/qt_KMbox.pri
+%{_includedir}/KPim5/KMbox
+%{_libdir}/cmake/KF5Mbox
+%{_libdir}/cmake/KPim5Mbox
+%{_libdir}/libKPim5Mbox.so
