@@ -1,26 +1,26 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kmbox
 Summary:	Kmbox
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	47b5d95aa8e47144f0251933e31a8b68
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	d48a492fefb6b1edd1608206562757c0
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Test-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Test-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	ka5-kmime-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -73,14 +73,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_datadir}/qlogging-categories5/kmbox.categories
-%{_datadir}/qlogging-categories5/kmbox.renamecategories
-%ghost %{_libdir}/libKPim5Mbox.so.5
-%attr(755,root,root) %{_libdir}/libKPim5Mbox.so.*.*.*
+%attr(755,root,root) %{_libdir}/libKPim6Mbox.so.*.*
+%ghost %{_libdir}/libKPim6Mbox.so.6
+%{_datadir}/qlogging-categories6/kmbox.categories
+%{_datadir}/qlogging-categories6/kmbox.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/qt5/mkspecs/modules/qt_KMbox.pri
-%{_includedir}/KPim5/KMbox
-%{_libdir}/cmake/KPim5Mbox
-%{_libdir}/libKPim5Mbox.so
+%{_includedir}/KPim6/KMbox
+%{_libdir}/cmake/KPim6Mbox
+%{_libdir}/libKPim6Mbox.so
